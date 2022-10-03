@@ -1,4 +1,4 @@
-import { createGlobalData, EvalResult } from "workers/evaluate";
+import { createGlobalData, EvalResult } from "workers/Evaluation/evaluate";
 const ctx: Worker = self as any;
 
 /*
@@ -14,7 +14,7 @@ import {
   ActionTriggerType,
 } from "entities/DataTree/actionTriggers";
 import _ from "lodash";
-import { dataTreeEvaluator } from "workers/evaluation.worker";
+import { dataTreeEvaluator } from "workers/Evaluation/evaluation.worker";
 
 export const promisifyAction = (
   workerRequestId: string,
@@ -43,7 +43,6 @@ export const promisifyAction = (
       type: EVAL_WORKER_ACTIONS.PROCESS_TRIGGER,
       responseData,
       requestId: workerRequestIdCopy,
-      promisified: true,
     });
     const processResponse = function(event: MessageEvent) {
       const { data, method, requestId, success } = event.data;
@@ -100,7 +99,6 @@ export const completePromise = (requestId: string, result: EvalResult) => {
       result,
     },
     requestId,
-    promisified: true,
   });
 };
 

@@ -61,6 +61,8 @@ import SettingsReducer, {
 import { GuidedTourState } from "reducers/uiReducers/guidedTourReducer";
 import { TriggerValuesEvaluationState } from "reducers/evaluationReducers/triggerReducer";
 import { CanvasWidgetStructure } from "widgets/constants";
+import { LintErrors } from "reducers/lintingReducers/lintErrorsReducers";
+import lintErrorReducer from "reducers/lintingReducers";
 
 export const reducerObject = {
   entities: entityReducer,
@@ -68,6 +70,7 @@ export const reducerObject = {
   evaluations: evaluationsReducer,
   form: formReducer,
   settings: SettingsReducer,
+  linting: lintErrorReducer,
 };
 
 export interface AppState {
@@ -132,6 +135,9 @@ export interface AppState {
     loadingEntities: LoadingEntitiesState;
     formEvaluation: FormEvaluationState;
     triggers: TriggerValuesEvaluationState;
+  };
+  linting: {
+    errors: LintErrors;
   };
   form: {
     [key: string]: any;

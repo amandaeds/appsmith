@@ -670,6 +670,7 @@ export const ReduxActionTypes = {
   INIT_TRIGGER_VALUES: "INIT_TRIGGER_VALUES",
   FETCH_TRIGGER_VALUES_INIT: "FETCH_TRIGGER_VALUES_INIT",
   FETCH_TRIGGER_VALUES_SUCCESS: "FETCH_TRIGGER_VALUES_SUCCESS",
+  SET_LINT_ERRORS: "SET_LINT_ERRORS",
 };
 
 export type ReduxActionType = typeof ReduxActionTypes[keyof typeof ReduxActionTypes];
